@@ -367,71 +367,219 @@
 
     <!-- Bicara Rasa -->
     <section class="container-xl mb-5">
-        <h2 class="fw-bold mb-4">Bicara Rasa</h2>
-        <div class="row g-4">
-            <div class="col-12 col-md-4">
-                <div class="card h-100 shadow-sm p-3">
-                    <p><strong>Tentang Resep & Dapur</strong><br>Bagaimana cara membuat resep bisa masuk...</p>
+        <div class="text-center mb-4">
+            <div class="populer-badge">Bicara Rasa</div>
+            <div class="populer-sub">Dari Search Sampai Favorit, Yuk Tanya YumHeaven!</div>
+        </div>
+        <div class="row justify-content-center g-4">
+            <!-- Card 1 -->
+            <div class="col-12 col-lg-4 col-md-6">
+                <div style="background:#fff; border-radius:24px; box-shadow:0 4px 16px rgba(0,0,0,0.08); padding:24px; position:relative;">
+                    <div class="d-flex align-items-center mb-3">
+                        <div style="width:48px; height:48px; border-radius:50%; background:#222; margin-right:12px; flex-shrink:0;"></div>
+                        <div>
+                            <div style="font-weight:600; font-size:1rem; margin-bottom:2px;">Tentang Resep & Dapur</div>
+                            <div style="font-size:0.85rem; color:#666;">14 Juli 2023 Oleh: Dio Putra</div>
+                        </div>
+                    </div>
+                    <div style="font-size:0.95rem; color:#444; margin-bottom:20px;">Bagaimana cara membuat resep bisa masuk...</div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center" style="gap:6px;">
+                            <div style="background:#8fd3d6; padding:6px 12px; border-radius:20px; display:flex; align-items:center; gap:4px;">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z" fill="#fff"/>
+                                </svg>
+                                <span style="color:#fff; font-size:0.85rem;">YumHeaven</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center" style="gap:4px;">
+                            <div style="padding:6px; border-radius:50%; background:#f5f5f5; cursor:pointer;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3m7-2V5c0-1.66-1.34-3-3-3h0c-1.66 0-3 1.34-3 3v7h9l-1 2-2 7a2 2 0 01-2 2h0a2 2 0 01-2-2v-7" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span style="color:#666; font-size:0.9rem;">1</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
-                <div class="card h-100 shadow-sm p-3">
-                    <p><strong>Interaksi Komunitas</strong><br>Bagaimana YumHeaven menjaga kualitas resep...</p>
+            <!-- Card 2 -->
+            <div class="col-12 col-lg-4 col-md-6">
+                <div style="background:#fff; border-radius:24px; box-shadow:0 4px 16px rgba(0,0,0,0.08); padding:24px; position:relative;">
+                    <div class="d-flex align-items-center mb-3">
+                        <div style="width:48px; height:48px; border-radius:50%; background:#222; margin-right:12px; flex-shrink:0;"></div>
+                        <div>
+                            <div style="font-weight:600; font-size:1rem; margin-bottom:2px;">Interaksi Komunitas</div>
+                            <div style="font-size:0.85rem; color:#666;">14 Juli 2023 Oleh: Puggy Almira</div>
+                        </div>
+                    </div>
+                    <div style="font-size:0.95rem; color:#444; margin-bottom:20px;">Bagaimana YumHeaven menjaga kualitas resep dari pengguna?..</div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center" style="gap:6px;">
+                            <div style="background:#8fd3d6; padding:6px 12px; border-radius:20px; display:flex; align-items:center; gap:4px;">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z" fill="#fff"/>
+                                </svg>
+                                <span style="color:#fff; font-size:0.85rem;">YumHeaven</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center" style="gap:4px;">
+                            <div style="padding:6px; border-radius:50%; background:#f5f5f5; cursor:pointer;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3m7-2V5c0-1.66-1.34-3-3-3h0c-1.66 0-3 1.34-3 3v7h9l-1 2-2 7a2 2 0 01-2 2h0a2 2 0 01-2-2v-7" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span style="color:#666; font-size:0.9rem;">1</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
-                <div class="card h-100 shadow-sm p-3">
-                    <p><strong>Fitur & Teknologi</strong><br>Bagaimana sistem rating bekerja?..</p>
+            <!-- Card 3 -->
+            <div class="col-12 col-lg-4 col-md-6">
+                <div style="background:#fff; border-radius:24px; box-shadow:0 4px 16px rgba(0,0,0,0.08); padding:24px; position:relative;">
+                    <div class="d-flex align-items-center mb-3">
+                        <div style="width:48px; height:48px; border-radius:50%; background:#222; margin-right:12px; flex-shrink:0;"></div>
+                        <div>
+                            <div style="font-weight:600; font-size:1rem; margin-bottom:2px;">Fitur & Teknologi</div>
+                            <div style="font-size:0.85rem; color:#666;">14 Juli 2023 Oleh: Arkonita</div>
+                        </div>
+                    </div>
+                    <div style="font-size:0.95rem; color:#444; margin-bottom:20px;">Bagaimana sistem rating bekerja?..</div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center" style="gap:6px;">
+                            <div style="background:#8fd3d6; padding:6px 12px; border-radius:20px; display:flex; align-items:center; gap:4px;">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z" fill="#fff"/>
+                                </svg>
+                                <span style="color:#fff; font-size:0.85rem;">YumHeaven</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center" style="gap:4px;">
+                            <div style="padding:6px; border-radius:50%; background:#f5f5f5; cursor:pointer;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3m7-2V5c0-1.66-1.34-3-3-3h0c-1.66 0-3 1.34-3 3v7h9l-1 2-2 7a2 2 0 01-2 2h0a2 2 0 01-2-2v-7" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span style="color:#666; font-size:0.9rem;">1</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Artikel & Tips -->
-    <section class="container-xl mb-5">
-        <h2 class="fw-bold mb-2">Artikel & Tips</h2>
-        <p class="mb-4">Yuk temukan tips memasak yang seru!</p>
-        <div class="row g-4">
-            <div class="col-12 col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="{{ asset('images/pempek.jpg') }}" alt="Pempek" class="card-img-top" style="object-fit:cover; height:180px;">
-                    <div class="card-body">
-                        <p class="card-text">12 Cara Membuat Pempek Palembang</p>
+<!-- Artikel & Tips -->
+<section class="container-xl mb-5">
+        <div class="text-center mb-4">
+            <div class="populer-badge">Artikel & Tips</div>
+            <div class="populer-sub">Yuk temukan tips memasak yang seru!</div>
+        </div>
+        <div class="row position-relative">
+            <!-- Kolom Kiri - Gambar Besar Pempek -->
+            <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                <div style="background:#fff; border-radius:24px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.08); position:relative; height:500px;">
+                    <img src="{{ asset('images/pempek.png') }}" alt="Pempek Palembang" style="width:100%; height:100%; object-fit:cover;">
+                    <div style="position:absolute; top:20px; left:20px; background:rgba(0,0,0,0.7); color:#fff; padding:8px 16px; border-radius:20px; font-size:0.9rem; font-weight:600;">
+                        PEMPEK PALEMBANG
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="{{ asset('images/pukis.jpg') }}" alt="Pukis" class="card-img-top" style="object-fit:cover; height:180px;">
-                    <div class="card-body">
-                        <p class="card-text">Pukis Legit</p>
+            
+            <!-- Kolom Kanan -->
+            <div class="col-12 col-lg-6">
+                <!-- Gambar Pukis dan Klepon -->
+                <div class="d-flex flex-column gap-3 mb-4">
+                    <!-- Pukis -->
+                    <div style="background:#fff; border-radius:24px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.08); position:relative; height:200px;">
+                        <img src="{{ asset('images/pukis.png') }}" alt="Pukis Legit" style="width:100%; height:100%; object-fit:cover;">
+                        <div style="position:absolute; top:10px; left:10px; background:rgba(255,255,255,0.9); color:#333; padding:4px 12px; border-radius:15px; font-size:0.8rem; font-weight:600;">
+                            PUKIS LEGIT
+                        </div>
+                        <div style="position:absolute; top:10px; right:10px; background:#ff4757; color:#fff; padding:4px 8px; border-radius:12px; font-size:0.75rem; font-weight:600;">
+                            TERLARIS
+                        </div>
+                    </div>
+                    <!-- Klepon -->
+                    <div style="background:#fff; border-radius:24px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.08); position:relative; height:200px;">
+                        <img src="{{ asset('images/klepon.png') }}" alt="Klepon" style="width:100%; height:100%; object-fit:cover;">
+                        <div style="position:absolute; top:10px; left:10px; background:rgba(255,255,255,0.9); color:#333; padding:4px 12px; border-radius:15px; font-size:0.8rem; font-weight:600;">
+                            KLEPON
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List Artikel dengan Thumbnail -->
+                <div class="d-flex flex-column gap-3">
+                    <!-- Artikel Row -->
+                    <div class="d-flex gap-3">
+                        <div style="width:48px; height:48px; border-radius:50%; overflow:hidden; flex-shrink:0; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                            <img src="{{ asset('images/pempek-thumb.png') }}" alt="Thumbnail" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div style="flex-grow:1;">
+                            <h6 class="mb-1 fw-bold" style="color:#333; font-size:0.95rem;">12 Cara Membuat Pempek Palembang</h6>
+                            <p class="mb-0 text-muted small">Kami menyediakan..</p>
+                        </div>
+                    </div>
+                    <!-- Artikel Row -->
+                    <div class="d-flex gap-3">
+                        <div style="width:48px; height:48px; border-radius:50%; overflow:hidden; flex-shrink:0; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                            <img src="{{ asset('images/pempek-thumb.png') }}" alt="Thumbnail" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div style="flex-grow:1;">
+                            <h6 class="mb-1 fw-bold" style="color:#333; font-size:0.95rem;">12 Cara Membuat Pempek Palembang</h6>
+                            <p class="mb-0 text-muted small">Kami menyediakan..</p>
+                        </div>
+                    </div>
+                    <!-- Artikel Row -->
+                    <div class="d-flex gap-3">
+                        <div style="width:48px; height:48px; border-radius:50%; overflow:hidden; flex-shrink:0; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                            <img src="{{ asset('images/pempek-thumb.png') }}" alt="Thumbnail" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div style="flex-grow:1;">
+                            <h6 class="mb-1 fw-bold" style="color:#333; font-size:0.95rem;">12 Cara Membuat Pempek Palembang</h6>
+                            <p class="mb-0 text-muted small">Kami menyediakan..</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="{{ asset('images/klepon.jpg') }}" alt="Klepon" class="card-img-top" style="object-fit:cover; height:180px;">
-                    <div class="card-body">
-                        <p class="card-text">Klepon</p>
-                    </div>
+
+            <!-- Tombol Plus -->
+            <div class="container-xl mb-5">
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-light rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="width:56px; height:56px; background:#fff;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 4v16m-8-8h16" stroke="#8fd3d6" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Footer -->
-    <footer class="bg-white py-4 mt-5 border-top">
-        <div class="container-xl d-flex flex-column flex-md-row justify-content-between align-items-center">
-            <div class="mb-3 mb-md-0">
-                <span class="fw-bold" style="color:#7c5a3a; font-size:1.2rem;">YumHeaven</span>
-                <ul class="list-inline ms-3 mb-0">
-                    <li class="list-inline-item"><a href="#" class="text-decoration-none text-dark">Resep</a></li>
-                    <li class="list-inline-item"><a href="#" class="text-decoration-none text-dark">Artikel & Tips</a></li>
-                    <li class="list-inline-item"><a href="#" class="text-decoration-none text-dark">Bicara Rasa</a></li>
-                    <li class="list-inline-item"><a href="#" class="text-decoration-none text-dark">Resep Populer</a></li>
-                </ul>
+    <footer style="background:#f8d0d8; padding:48px 0;">
+        <div class="container-xl">
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-12 col-md-3 mb-4 mb-md-0">
+                    <img src="{{ asset('images/logo.png') }}" alt="YumHeaven Logo" style="width:120px; height:120px; object-fit:contain;">
+                </div>
+                
+                <!-- Menu Links -->
+                <div class="col-12 col-md-6 mb-4 mb-md-0">
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#" class="text-decoration-none" style="color:#333; font-size:1rem;">Resep</a>
+                        <a href="#" class="text-decoration-none" style="color:#333; font-size:1rem;">Resep Populer</a>
+                        <a href="#" class="text-decoration-none" style="color:#333; font-size:1rem;">Artikel & Tips</a>
+                        <a href="#" class="text-decoration-none" style="color:#333; font-size:1rem;">Bicara Rasa</a>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div class="col-12 col-md-3 text-md-end">
+                    <p class="mb-0" style="color:#333; font-size:0.9rem;">Copyright © 2025 PT YumHeaven Indonesia. All rights reserved.</p>
+                </div>
             </div>
-            <div class="text-muted small">Copyright © 2025 PT YumHeaven Indonesia. All rights reserved.</div>
         </div>
     </footer>
 
