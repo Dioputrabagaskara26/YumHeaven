@@ -1,576 +1,833 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yum Heaven - Resep Masakan Indonesia</title>
+    <title>YumHeaven - Beranda</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #F8F0E5;
-            color: #4F372F;
-            line-height: 1.6;
+            background: #f5d6b2;
         }
-
-        /* Header Styles */
-        .header {
-            background-color: #F8F0E5;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #4F372F;
+        .bg-brown {
+            background: #7c5a3a !important;
+            color: #fff !important;
         }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .btn-brown {
+            background: #7c5a3a;
+            color: #fff;
+            border-radius: 16px;
         }
-
-        .logo-icon {
-            width: 30px;
-            height: 30px;
-            background-color: #FF8C00;
-            border-radius: 50%;
-            position: relative;
-        }
-
-        .logo-icon::before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 10px;
-            width: 10px;
-            height: 6px;
-            background-color: #4F372F;
-            border-radius: 50% 50% 0 0;
-        }
-
-        .logo-text {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .logo-text .yum {
-            color: #FF8C00;
-        }
-
-        .logo-text .heaven {
-            color: #4F372F;
-        }
-
         .search-bar {
-            background-color: #4F372F;
-            border-radius: 25px;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: white;
+            background: #7c5a3a;
+            color: #fff;
+            border-radius: 12px;
         }
-
-        .search-icon {
-            width: 16px;
-            height: 16px;
-            border: 2px solid white;
-            border-radius: 50%;
-            position: relative;
+        .search-bar input {
+            background: #7c5a3a;
+            color: #fff;
+            border: none;
         }
-
-        .search-icon::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            right: -4px;
-            width: 8px;
-            height: 2px;
-            background-color: white;
-            transform: rotate(45deg);
+        .search-bar input::placeholder {
+            color: #fff;
+            opacity: 0.7;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
+        .populer-badge {
+            background: #8fd3d6;
+            color: #fff;
+            border-radius: 24px;
+            font-size: 1.3rem;
             font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .nav-links a {
-            color: #4F372F;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .login-btn {
-            background-color: #4F372F;
-            color: white;
-            padding: 10px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        /* Banner Section */
-        .banner {
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .banner-btn {
-            background: linear-gradient(135deg, #A8DADC, #7FB3B5);
-            color: white;
-            padding: 30px 60px;
-            border-radius: 20px;
+            padding: 12px 32px 4px 32px;
+            margin: 0 auto 8px auto;
             display: inline-block;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-
-        .banner-title {
-            font-size: 48px;
-            font-weight: bold;
-            margin-bottom: 10px;
+        .populer-sub {
+            color: #b2b2b2;
+            font-size: 0.9rem;
+            margin-bottom: 32px;
         }
-
-        .banner-subtitle {
-            font-size: 18px;
-            opacity: 0.9;
+        
+        /* New card design matching the image */
+        .resep-card {
+            background: #fff;
+            border-radius: 50px;
+            padding: 80px 24px 40px 24px;
+            margin: 40px 10px 20px 10px;
+            text-align: center;
+            position: relative;
+            min-height: 380px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border: 6px solid;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
-        /* Main Content */
-        .main-content {
-            padding: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
+        
+        .resep-card.border-blue {
+            border-color: #6ed6e7;
         }
-
-        .recipe-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
+        .resep-card.border-pink {
+            border-color: #e7b6c7;
         }
-
-        .recipe-card {
-            background: linear-gradient(90deg, #F8F0E5 0%, #E0C9B8 100%);
-            border-radius: 20px;
-            padding: 30px;
-            display: flex;
-            gap: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        .resep-card.border-yellow {
+            border-color: #ffe066;
         }
-
-        .recipe-image {
-            width: 200px;
-            height: 200px;
+        
+        .resep-card .food-image {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
+            border: 8px solid #fff;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        
+        .resep-card h3 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            color: #333;
+        }
+        
+        .resep-card .description {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 20px;
+            padding: 0 8px;
+        }
+        
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+        }
+        
+        .star {
+            color: #ffe066;
+            font-size: 1.4rem;
+        }
+        
+        .star:hover {
+            color: #ffd700;
+        }
+        
+        /* Resep Hari Ini Styles - New Design */
+        .resep-hari-card {
+            background: #fff;
+            border-radius: 25px;
+            padding: 0;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            max-width: 320px;
+            margin: 0 auto;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .resep-hari-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-content {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .food-image-hari {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
             flex-shrink: 0;
         }
-
-        .recipe-content {
+        
+        .card-text-content {
             flex: 1;
+            text-align: left;
         }
-
-        .recipe-title {
-            font-size: 28px;
+        
+        .time-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .time-icon.morning {
+            background: #ff8a9b;
+        }
+        
+        .time-icon.afternoon {
+            background: #ff8a9b;
+        }
+        
+        .time-icon.evening {
+            background: #d4a5a5;
+        }
+        
+        .menu-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .food-title {
+            font-size: 1.2rem;
             font-weight: bold;
-            color: #4F372F;
+            color: #333;
             margin-bottom: 15px;
         }
+        
+        .btn-selengkapnya {
+            background: #8fd3d6;
+            color: #fff;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .btn-selengkapnya:hover {
+            background: #7bc5c9;
+            color: #fff;
+        }
 
-        .recipe-description {
-            color: #4F372F;
-            font-size: 16px;
-            line-height: 1.8;
+        /* Add Recipe Modal Styles */
+        .modal-recipe {
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        
+        .modal-recipe .modal-header {
+            background: #f5d6b2;
+            border-bottom: none;
+            padding: 20px 30px;
+        }
+        
+        .modal-recipe .modal-title {
+            color: #7c5a3a;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+        
+        .modal-recipe .modal-body {
+            padding: 30px;
+        }
+        
+        .recipe-input {
+            border: 2px solid #f5d6b2;
+            border-radius: 12px;
+            padding: 12px;
             margin-bottom: 20px;
         }
-
-        .read-more {
-            color: #6A5ACD;
-            text-decoration: none;
+        
+        .recipe-input:focus {
+            border-color: #7c5a3a;
+            box-shadow: 0 0 0 0.2rem rgba(124, 90, 58, 0.25);
+        }
+        
+        .recipe-textarea {
+            min-height: 150px;
+            resize: none;
+        }
+        
+        .recipe-image-upload {
+            border: 2px dashed #f5d6b2;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .recipe-image-upload:hover {
+            border-color: #7c5a3a;
+            background: #fff5e6;
+        }
+        
+        .btn-submit-recipe {
+            background: #7c5a3a;
+            color: #fff;
+            border-radius: 12px;
+            padding: 12px 30px;
             font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit-recipe:hover {
+            background: #6a4c32;
+            color: #fff;
         }
 
-        .arrow-icon {
-            width: 12px;
-            height: 12px;
-            border-right: 2px solid #6A5ACD;
-            border-top: 2px solid #6A5ACD;
-            transform: rotate(45deg);
+        /* Choice Modal Styles */
+        .modal-choice {
+            border-radius: 24px;
+            overflow: hidden;
+            max-width: 320px;
+            margin: 1.75rem auto;
         }
-
-        .recipe-footer {
-            display: flex;
-            gap: 30px;
-            margin-top: 20px;
-            color: #4F372F;
-            font-size: 14px;
+        
+        .modal-choice .modal-content {
+            border: none;
+            border-radius: 24px;
         }
-
-        .recipe-info {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .star-icon {
-            color: #FFD700;
-            font-size: 16px;
-        }
-
-        .people-icon {
-            width: 16px;
-            height: 16px;
-            background-color: #4F372F;
-            border-radius: 50%;
-            position: relative;
-        }
-
-        .people-icon::before,
-        .people-icon::after {
-            content: '';
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background-color: #4F372F;
-            border-radius: 50%;
-            top: 2px;
-        }
-
-        .people-icon::before {
-            left: 2px;
-        }
-
-        .people-icon::after {
-            right: 2px;
-        }
-
-        .clock-icon {
-            width: 16px;
-            height: 16px;
-            border: 2px solid #4F372F;
-            border-radius: 50%;
-            position: relative;
-        }
-
-        .clock-icon::before {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 6px;
-            width: 2px;
-            height: 6px;
-            background-color: #4F372F;
-        }
-
-        .clock-icon::after {
-            content: '';
-            position: absolute;
-            top: 6px;
-            left: 6px;
-            width: 4px;
-            height: 2px;
-            background-color: #4F372F;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #F5E8DD;
-            padding: 40px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
+        
+        .choice-button {
+            background: #fff;
+            border: 2px solid #f5d6b2;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
         }
-
-        .footer-logo .logo-icon {
-            width: 25px;
-            height: 25px;
+        
+        .choice-button:hover {
+            border-color: #7c5a3a;
+            background: #fff5e6;
         }
-
-        .footer-logo .logo-text {
-            font-size: 20px;
-        }
-
-        .footer-links {
+        
+        .choice-button .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             display: flex;
-            gap: 40px;
+            align-items: center;
+            justify-content: center;
         }
-
-        .footer-links a {
-            color: #4F372F;
-            text-decoration: none;
+        
+        .choice-button .icon.recipe {
+            background: #ffe4e4;
+        }
+        
+        .choice-button .icon.article {
+            background: #e4f5ff;
+        }
+        
+        .choice-button .text {
+            text-align: left;
+            flex-grow: 1;
+        }
+        
+        .choice-button .title {
             font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
         }
-
-        .favorite-btn {
-            background-color: #A8DADC;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 12px;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            margin-bottom: 10px;
-        }
-
-        .heart-icon {
-            width: 12px;
-            height: 12px;
-            background-color: #FF6B6B;
-            border-radius: 50% 50% 0 0;
-            position: relative;
-        }
-
-        .heart-icon::before {
-            content: '';
-            position: absolute;
-            top: 6px;
-            left: 6px;
-            width: 12px;
-            height: 12px;
-            background-color: #FF6B6B;
-            border-radius: 50% 50% 0 0;
-            transform: rotate(45deg);
-        }
-
-        .copyright {
-            font-size: 12px;
-            color: #4F372F;
-            text-align: right;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                gap: 20px;
-                padding: 20px;
-            }
-
-            .nav-links {
-                gap: 15px;
-            }
-
-            .recipe-card {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .recipe-image {
-                width: 150px;
-                height: 150px;
-                margin: 0 auto;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
+        
+        .choice-button .description {
+            font-size: 0.85rem;
+            color: #666;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="logo">
-            <div class="logo-icon"></div>
-            <div class="logo-text">
-                <span class="yum">Yum</span><span class="heaven">Heaven</span>
+    <header class="w-100 py-3 mb-4" style="background: #f5d6b2;">
+        <div class="container-xl">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-3 d-flex align-items-center mb-3 mb-md-0">
+                    <img src="{{ asset('images/logo.png') }}" alt="YumHeaven Logo" style="height:48px; width:auto;" class="me-3" />
+                    <form class="d-none d-md-flex flex-grow-1 ms-2" role="search">
+                        <div class="input-group search-bar">
+                            <span class="input-group-text bg-transparent border-0" style="color:#fff;"><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-search' viewBox='0 0 16 16'><path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/></svg></span>
+                            <input class="form-control" type="search" placeholder="" aria-label="Search">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 col-md-6 d-flex justify-content-center mb-3 mb-md-0">
+                    <nav class="nav gap-4">
+                    <a class="nav-link fw-bold text-dark" href="resep">RESEP</a>
+                        <a class="nav-link fw-bold text-dark" href="#">ARTIKEL & TIPS</a>
+                        <a class="nav-link fw-bold text-dark" href="#">BICARA RASA</a>
+                    </nav>
+                </div>
+                <div class="col-12 col-md-3 d-flex justify-content-md-end justify-content-center">
+                    <a href="#" class="btn btn-brown px-4 py-2 fw-bold">LOGIN</a>
+                </div>
             </div>
         </div>
-        
-        <div class="search-bar">
-            <div class="search-icon"></div>
-            <span>Search...</span>
-        </div>
-        
-        <nav class="nav-links">
-            <a href="#">Resep</a>
-            <a href="#">Artikel & Tips</a>
-            <a href="#">Bicara Rasa</a>
-        </nav>
-        
-        <a href="#" class="login-btn">Login</a>
     </header>
 
-    <!-- Banner Section -->
-    <section class="banner">
-        <a href="#" class="banner-btn">
-            <div class="banner-title">Resep</div>
-            <div class="banner-subtitle">Telusuri resep resep yang menarik</div>
-        </a>
+    <!-- Gambar Hero -->
+    <section class="container-xl mb-4">
+        <div class="rounded-4 shadow" style="overflow:hidden;">
+            <img src="{{ asset('images/hero.png') }}" alt="Gambar Hero" style="width:100%; object-fit:cover; min-height:260px; max-height:340px;">
+        </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="recipe-cards">
-            <!-- Recipe Card 1 -->
-            <div class="recipe-card">
-                <img src="{{ asset('images/bakso.png') }}" alt="BBQ Chicken Wings" class="recipe-image">
-                <div class="recipe-content">
-                    <h2 class="recipe-title">BBQ Chicken Wings</h2>
-                    <p class="recipe-description">
-                        Disajikan dengan balutan saus BBQ yang kaya rasa—manis, gurih, dan sedikit pedas—sayap ayam ini dipanggang hingga sempurna dengan kilauan saus yang menggoda selera. Dihiasi dengan daun parsley segar di atas piring putih bersih, tampilannya tidak hanya mengundang, tapi juga siap memanjakan lidah Anda. Cocok untuk teman kumpul atau camilan spesial di akhir pekan!
-                    </p>
-                    <a href="#" class="read-more">
-                        Selengkapnya <span class="arrow-icon"></span>
-                    </a>
-                    <div class="recipe-footer">
-                        <div class="recipe-info">
-                            <span class="star-icon">★</span>
-                            <span>5.0/5.0</span>
-                        </div>
-                        <div class="recipe-info">
-                            <div class="people-icon"></div>
-                            <span>Disajikan - 4</span>
-                        </div>
-                        <div class="recipe-info">
-                            <div class="clock-icon"></div>
-                            <span>Waktu memasak 2 jam 30 menit</span>
+    <!-- Resep Populer -->
+    <section class="container-xl mb-5">
+        <div class="text-center mb-4">
+            <div class="populer-badge">Resep Populer</div>
+            <div class="populer-sub">Hits Banget Minggu Ini</div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-4 col-md-6 d-flex justify-content-center">
+                <div class="resep-card border-blue">
+                    <img src="{{ asset('images/bakso.png') }}" alt="Bakso" class="food-image">
+                    <h3>Bakso</h3>
+                    <p class="description">Bakso sapi kenyal dalam kuah kaldu gurih, dilengkapi mie, tahu, dan pangsit. Hidangan favorit sejuta umat.</p>
+                    <div class="star-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-6 d-flex justify-content-center">
+                <div class="resep-card border-pink">
+                    <img src="{{ asset('images/rendang.png') }}" alt="Rendang" class="food-image">
+                    <h3>Rendang</h3>
+                    <p class="description">Daging sapi dimasak lama dengan santan dan rempah khas Minang, menghasilkan rasa gurih dan pedas yang kaya.</p>
+                    <div class="star-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-6 d-flex justify-content-center">
+                <div class="resep-card border-yellow">
+                    <img src="{{ asset('images/papeda.png') }}" alt="Papeda" class="food-image">
+                    <h3>Papeda</h3>
+                    <p class="description">Papeda khas Papua disajikan dengan ikan kuah kuning berbumbu segar dari kunyit dan daun mint, menyajikan rasa eksotis nan lembut.</p>
+                    <div class="star-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resep Hari Ini -->
+    <section class="container-xl mb-5">
+        <div class="text-center mb-4">
+            <div class="populer-badge">Resep Hari Ini</div>
+            <div class="populer-sub">Inspirasi Hari Ini</div>
+        </div>
+        <div class="row justify-content-center g-4">
+            <div class="col-12 col-lg-4 col-md-6 d-flex justify-content-center">
+                <div class="resep-hari-card">
+                    <div class="time-icon morning">
+                        <svg width="24" height="24" fill="white" viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="8" fill="#ff8a9b"/>
+                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <img src="{{ asset('images/bubur.png') }}" alt="Bubur Ayam" class="food-image-hari">
+                        <div class="card-text-content">
+                            <div class="menu-label">Menu Pagi</div>
+                            <h4 class="food-title">Bubur Ayam</h4>
+                            <button class="btn-selengkapnya">Selengkapnya</button>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Recipe Card 2 -->
-            <div class="recipe-card">
-                <img src="{{ asset('images/rendang.png') }}" alt="Grilled Steak" class="recipe-image">
-                <div class="recipe-content">
-                    <h2 class="recipe-title">Grilled Steak with Potatoes</h2>
-                    <p class="recipe-description">
-                        Steak daging sapi premium yang dipanggang dengan sempurna, disajikan dengan kentang panggang yang renyah dan rosemary segar. Daging yang juicy dengan tekstur yang lembut dan rasa yang kaya akan membuat pengalaman makan Anda menjadi tak terlupakan. Cocok untuk makan malam spesial bersama keluarga atau teman-teman.
-                    </p>
-                    <a href="#" class="read-more">
-                        Selengkapnya <span class="arrow-icon"></span>
-                    </a>
-                    <div class="recipe-footer">
-                        <div class="recipe-info">
-                            <span class="star-icon">★</span>
-                            <span>4.8/5.0</span>
-                        </div>
-                        <div class="recipe-info">
-                            <div class="people-icon"></div>
-                            <span>Disajikan - 2</span>
-                        </div>
-                        <div class="recipe-info">
-                            <div class="clock-icon"></div>
-                            <span>Waktu memasak 1 jam 45 menit</span>
+            <div class="col-12 col-lg-4 col-md-6 d-flex justify-content-center">
+                <div class="resep-hari-card">
+                    <div class="time-icon afternoon">
+                        <svg width="24" height="24" fill="white" viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="3" fill="white"/>
+                            <g stroke="white" stroke-width="1.5">
+                                <path d="M8 1v2M8 13v2M15 8h-2M3 8H1M12.071 12.071l-1.414-1.414M5.343 5.343L3.929 3.929M12.071 3.929l-1.414 1.414M5.343 10.657L3.929 12.071"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <img src="{{ asset('images/soto.png') }}" alt="Soto Ayam" class="food-image-hari">
+                        <div class="card-text-content">
+                            <div class="menu-label">Menu Siang</div>
+                            <h4 class="food-title">Soto Ayam</h4>
+                            <button class="btn-selengkapnya">Selengkapnya</button>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Recipe Card 3 -->
-            <div class="recipe-card">
-                <img src="{{ asset('images/soto.png') }}" alt="Spaghetti" class="recipe-image">
-                <div class="recipe-content">
-                    <h2 class="recipe-title">Spaghetti Bolognese</h2>
-                    <p class="recipe-description">
-                        Pasta spaghetti yang dimasak al dente dengan saus bolognese yang kaya rasa, dibuat dari daging sapi cincang, tomat segar, dan bumbu-bumbu pilihan. Dihiasi dengan daun basil segar yang memberikan aroma dan rasa yang menyegarkan. Hidangan klasik Italia yang selalu disukai oleh semua kalangan.
-                    </p>
-                    <a href="#" class="read-more">
-                        Selengkapnya <span class="arrow-icon"></span>
-                    </a>
-                    <div class="recipe-footer">
-                        <div class="recipe-info">
-                            <span class="star-icon">★</span>
-                            <span>4.9/5.0</span>
-                        </div>
-                        <div class="recipe-info">
-                            <div class="people-icon"></div>
-                            <span>Disajikan - 3</span>
-                        </div>
-                        <div class="recipe-info">
-                            <div class="clock-icon"></div>
-                            <span>Waktu memasak 1 jam 15 menit</span>
-                        </div>
+            <div class="col-12 col-lg-4 col-md-6 d-flex justify-content-center">
+                <div class="resep-hari-card">
+                    <div class="time-icon evening">
+                        <svg width="24" height="24" fill="white" viewBox="0 0 16 16">
+                            <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" fill="white"/>
+                        </svg>
                     </div>
-                </div>
-            </div>
-
-            <!-- Recipe Card 4 -->
-            <div class="recipe-card">
-                <img src="{{ asset('images/papeda.png') }}" alt="Grilled Salmon" class="recipe-image">
-                <div class="recipe-content">
-                    <h2 class="recipe-title">Grilled Salmon with Greens</h2>
-                    <p class="recipe-description">
-                        Ikan salmon segar yang dipanggang dengan sempurna, disajikan di atas bed of mixed greens yang segar dan sehat. Salmon yang lembut dengan kulit yang renyah, dipadukan dengan sayuran hijau yang memberikan nutrisi lengkap. Hidangan sehat yang cocok untuk gaya hidup modern.
-                    </p>
-                    <a href="#" class="read-more">
-                        Selengkapnya <span class="arrow-icon"></span>
-                    </a>
-                    <div class="recipe-footer">
-                        <div class="recipe-info">
-                            <span class="star-icon">★</span>
-                            <span>4.7/5.0</span>
-                        </div>
-                        <div class="recipe-info">
-                            <div class="people-icon"></div>
-                            <span>Disajikan - 2</span>
-                        </div>
-                        <div class="recipe-info">
-                            <div class="clock-icon"></div>
-                            <span>Waktu memasak 45 menit</span>
+                    <div class="card-content">
+                        <img src="{{ asset('images/nasi.png') }}" alt="Nasi Goreng" class="food-image-hari">
+                        <div class="card-text-content">
+                            <div class="menu-label">Menu Malam</div>
+                            <h4 class="food-title">Nasi Goreng</h4>
+                            <button class="btn-selengkapnya">Selengkapnya</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
+    <!-- Bicara Rasa -->
+    <section class="container-xl mb-5">
+        <div class="text-center mb-4">
+            <div class="populer-badge">Bicara Rasa</div>
+            <div class="populer-sub">Dari Search Sampai Favorit, Yuk Tanya YumHeaven!</div>
+        </div>
+        <div class="row justify-content-center g-4">
+            <!-- Card 1 -->
+            <div class="col-12 col-lg-4 col-md-6">
+                <div style="background:#fff; border-radius:24px; box-shadow:0 4px 16px rgba(0,0,0,0.08); padding:24px; position:relative;">
+                    <div class="d-flex align-items-center mb-3">
+                        <div style="width:48px; height:48px; border-radius:50%; background:#222; margin-right:12px; flex-shrink:0;"></div>
+                        <div>
+                            <div style="font-weight:600; font-size:1rem; margin-bottom:2px;">Tentang Resep & Dapur</div>
+                            <div style="font-size:0.85rem; color:#666;">14 Juli 2023 Oleh: Dio Putra</div>
+                        </div>
+                    </div>
+                    <div style="font-size:0.95rem; color:#444; margin-bottom:20px;">Bagaimana cara membuat resep bisa masuk...</div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center" style="gap:6px;">
+                            <div style="background:#8fd3d6; padding:6px 12px; border-radius:20px; display:flex; align-items:center; gap:4px;">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z" fill="#fff"/>
+                                </svg>
+                                <span style="color:#fff; font-size:0.85rem;">YumHeaven</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center" style="gap:4px;">
+                            <div style="padding:6px; border-radius:50%; background:#f5f5f5; cursor:pointer;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3m7-2V5c0-1.66-1.34-3-3-3h0c-1.66 0-3 1.34-3 3v7h9l-1 2-2 7a2 2 0 01-2 2h0a2 2 0 01-2-2v-7" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span style="color:#666; font-size:0.9rem;">1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-12 col-lg-4 col-md-6">
+                <div style="background:#fff; border-radius:24px; box-shadow:0 4px 16px rgba(0,0,0,0.08); padding:24px; position:relative;">
+                    <div class="d-flex align-items-center mb-3">
+                        <div style="width:48px; height:48px; border-radius:50%; background:#222; margin-right:12px; flex-shrink:0;"></div>
+                        <div>
+                            <div style="font-weight:600; font-size:1rem; margin-bottom:2px;">Interaksi Komunitas</div>
+                            <div style="font-size:0.85rem; color:#666;">14 Juli 2023 Oleh: Puggy Almira</div>
+                        </div>
+                    </div>
+                    <div style="font-size:0.95rem; color:#444; margin-bottom:20px;">Bagaimana YumHeaven menjaga kualitas resep dari pengguna?..</div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center" style="gap:6px;">
+                            <div style="background:#8fd3d6; padding:6px 12px; border-radius:20px; display:flex; align-items:center; gap:4px;">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z" fill="#fff"/>
+                                </svg>
+                                <span style="color:#fff; font-size:0.85rem;">YumHeaven</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center" style="gap:4px;">
+                            <div style="padding:6px; border-radius:50%; background:#f5f5f5; cursor:pointer;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3m7-2V5c0-1.66-1.34-3-3-3h0c-1.66 0-3 1.34-3 3v7h9l-1 2-2 7a2 2 0 01-2 2h0a2 2 0 01-2-2v-7" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span style="color:#666; font-size:0.9rem;">1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-12 col-lg-4 col-md-6">
+                <div style="background:#fff; border-radius:24px; box-shadow:0 4px 16px rgba(0,0,0,0.08); padding:24px; position:relative;">
+                    <div class="d-flex align-items-center mb-3">
+                        <div style="width:48px; height:48px; border-radius:50%; background:#222; margin-right:12px; flex-shrink:0;"></div>
+                        <div>
+                            <div style="font-weight:600; font-size:1rem; margin-bottom:2px;">Fitur & Teknologi</div>
+                            <div style="font-size:0.85rem; color:#666;">14 Juli 2023 Oleh: Arkonita</div>
+                        </div>
+                    </div>
+                    <div style="font-size:0.95rem; color:#444; margin-bottom:20px;">Bagaimana sistem rating bekerja?..</div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center" style="gap:6px;">
+                            <div style="background:#8fd3d6; padding:6px 12px; border-radius:20px; display:flex; align-items:center; gap:4px;">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z" fill="#fff"/>
+                                </svg>
+                                <span style="color:#fff; font-size:0.85rem;">YumHeaven</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center" style="gap:4px;">
+                            <div style="padding:6px; border-radius:50%; background:#f5f5f5; cursor:pointer;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3m7-2V5c0-1.66-1.34-3-3-3h0c-1.66 0-3 1.34-3 3v7h9l-1 2-2 7a2 2 0 01-2 2h0a2 2 0 01-2-2v-7" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span style="color:#666; font-size:0.9rem;">1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Artikel & Tips -->
+<section class="container-xl mb-5">
+        <div class="text-center mb-4">
+            <div class="populer-badge">Artikel & Tips</div>
+            <div class="populer-sub">Yuk temukan tips memasak yang seru!</div>
+        </div>
+        <div class="row position-relative">
+            <!-- Kolom Kiri - Gambar Besar Pempek -->
+            <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                <div style="background:#fff; border-radius:24px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.08); position:relative; height:500px;">
+                    <img src="{{ asset('images/pempek.png') }}" alt="Pempek Palembang" style="width:100%; height:100%; object-fit:cover;">
+                    <div style="position:absolute; top:20px; left:20px; background:rgba(0,0,0,0.7); color:#fff; padding:8px 16px; border-radius:20px; font-size:0.9rem; font-weight:600;">
+                        PEMPEK PALEMBANG
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Kolom Kanan -->
+            <div class="col-12 col-lg-6">
+                <!-- Gambar Pukis dan Klepon -->
+                <div class="d-flex flex-column gap-3 mb-4">
+                    <!-- Pukis -->
+                    <div style="background:#fff; border-radius:24px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.08); position:relative; height:200px;">
+                        <img src="{{ asset('images/pukis.png') }}" alt="Pukis Legit" style="width:100%; height:100%; object-fit:cover;">
+                        <div style="position:absolute; top:10px; left:10px; background:rgba(255,255,255,0.9); color:#333; padding:4px 12px; border-radius:15px; font-size:0.8rem; font-weight:600;">
+                            PUKIS LEGIT
+                        </div>
+                        <div style="position:absolute; top:10px; right:10px; background:#ff4757; color:#fff; padding:4px 8px; border-radius:12px; font-size:0.75rem; font-weight:600;">
+                            TERLARIS
+                        </div>
+                    </div>
+                    <!-- Klepon -->
+                    <div style="background:#fff; border-radius:24px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.08); position:relative; height:200px;">
+                        <img src="{{ asset('images/klepon.png') }}" alt="Klepon" style="width:100%; height:100%; object-fit:cover;">
+                        <div style="position:absolute; top:10px; left:10px; background:rgba(255,255,255,0.9); color:#333; padding:4px 12px; border-radius:15px; font-size:0.8rem; font-weight:600;">
+                            KLEPON
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List Artikel dengan Thumbnail -->
+                <div class="d-flex flex-column gap-3">
+                    <!-- Artikel Row -->
+                    <div class="d-flex gap-3">
+                        <div style="width:48px; height:48px; border-radius:50%; overflow:hidden; flex-shrink:0; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                            <img src="{{ asset('images/pempek-thumb.png') }}" alt="Thumbnail" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div style="flex-grow:1;">
+                            <h6 class="mb-1 fw-bold" style="color:#333; font-size:0.95rem;">12 Cara Membuat Pempek Palembang</h6>
+                            <p class="mb-0 text-muted small">Kami menyediakan..</p>
+                        </div>
+                    </div>
+                    <!-- Artikel Row -->
+                    <div class="d-flex gap-3">
+                        <div style="width:48px; height:48px; border-radius:50%; overflow:hidden; flex-shrink:0; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                            <img src="{{ asset('images/pempek-thumb.png') }}" alt="Thumbnail" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div style="flex-grow:1;">
+                            <h6 class="mb-1 fw-bold" style="color:#333; font-size:0.95rem;">12 Cara Membuat Pempek Palembang</h6>
+                            <p class="mb-0 text-muted small">Kami menyediakan..</p>
+                        </div>
+                    </div>
+                    <!-- Artikel Row -->
+                    <div class="d-flex gap-3">
+                        <div style="width:48px; height:48px; border-radius:50%; overflow:hidden; flex-shrink:0; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                            <img src="{{ asset('images/pempek-thumb.png') }}" alt="Thumbnail" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div style="flex-grow:1;">
+                            <h6 class="mb-1 fw-bold" style="color:#333; font-size:0.95rem;">12 Cara Membuat Pempek Palembang</h6>
+                            <p class="mb-0 text-muted small">Kami menyediakan..</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tombol Plus -->
+            <div class="container-xl mb-5">
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-light rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="width:56px; height:56px; background:#fff;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 4v16m-8-8h16" stroke="#8fd3d6" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <div class="logo-icon"></div>
-                <div class="logo-text">
-                    <span class="yum">Yum</span><span class="heaven">Heaven</span>
+    <footer style="background:#f8d0d8; padding:48px 0;">
+        <div class="container-xl">
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-12 col-md-3 mb-4 mb-md-0">
+                    <img src="{{ asset('images/logo.png') }}" alt="YumHeaven Logo" style="width:120px; height:120px; object-fit:contain;">
                 </div>
-            </div>
-            
-            <div class="footer-links">
-                <a href="#">Resep</a>
-                <a href="#">Artikel & Tips</a>
-                <a href="#">Bicara Rasa</a>
-                <a href="#">Resep Populer</a>
-            </div>
-            
-            <div style="text-align: right;">
-                <a href="#" class="favorite-btn">
-                    <div class="heart-icon"></div>
-                    Favorite
-                </a>
-                <div class="copyright">
-                    Copyright © 2025 PT YumHeaven Indonesia. All rights reserved.
+                
+                <!-- Menu Links -->
+                <div class="col-12 col-md-6 mb-4 mb-md-0">
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#" class="text-decoration-none" style="color:#333; font-size:1rem;">Resep</a>
+                        <a href="#" class="text-decoration-none" style="color:#333; font-size:1rem;">Resep Populer</a>
+                        <a href="#" class="text-decoration-none" style="color:#333; font-size:1rem;">Artikel & Tips</a>
+                        <a href="#" class="text-decoration-none" style="color:#333; font-size:1rem;">Bicara Rasa</a>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div class="col-12 col-md-3 text-md-end">
+                    <p class="mb-0" style="color:#333; font-size:0.9rem;">Copyright © 2025 PT YumHeaven Indonesia. All rights reserved.</p>
                 </div>
             </div>
         </div>
+    
     </footer>
+
+    <!-- Choice Modal -->
+    <div class="modal fade" id="choiceModal" tabindex="-1">
+        <div class="modal-dialog modal-choice">
+            <div class="modal-content">
+                <div class="modal-body p-4">
+                    <div class="choice-button" onclick="openAddRecipeModal()">
+                        <div class="icon recipe">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M15 11H9m3-3v6M12 4c4.4183 0 8 3.5817 8 8s-3.5817 8-8 8-8-3.5817-8-8 3.5817-8 8-8z" stroke="#ff8a9b" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="text">
+                            <div class="title">Tambah Resep</div>
+                            <div class="description">Bagikan resep favoritmu</div>
+                        </div>
+                    </div>
+                    <div class="choice-button">
+                        <div class="icon article">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M15 11H9m3-3v6M12 4c4.4183 0 8 3.5817 8 8s-3.5817 8-8 8-8-3.5817-8-8 3.5817-8 8-8z" stroke="#5ab0ff" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="text">
+                            <div class="title">Tambah Artikel</div>
+                            <div class="description">Tulis artikel tentang kuliner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Recipe Modal -->
+    <div class="modal fade" id="addRecipeModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-recipe">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tambahkan Resep</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="recipeForm">
+                        <div class="mb-4">
+                            <input type="text" class="form-control recipe-input" placeholder="Judul Resep" required>
+                        </div>
+                        <div class="mb-4">
+                            <textarea class="form-control recipe-input recipe-textarea" placeholder="Deskripsi Resep" required></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <div class="recipe-image-upload" onclick="document.getElementById('recipeImage').click()">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" style="margin-bottom: 12px">
+                                    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7m4-5l5-5 5 5m-5-5v12" stroke="#7c5a3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <div style="color: #7c5a3a; font-weight: 500">Unggah Foto Resep</div>
+                                <div style="color: #666; font-size: 0.9rem; margin-top: 4px">Klik atau seret file kesini</div>
+                            </div>
+                            <input type="file" id="recipeImage" accept="image/*" style="display: none">
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-submit-recipe">Tambah Resep</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add click event to the plus button to show choice modal
+        document.querySelector('.btn-light').addEventListener('click', function() {
+            var modal = new bootstrap.Modal(document.getElementById('choiceModal'));
+            modal.show();
+        });
+
+        // Function to open add recipe modal
+        function openAddRecipeModal() {
+            // Hide choice modal
+            var choiceModal = bootstrap.Modal.getInstance(document.getElementById('choiceModal'));
+            choiceModal.hide();
+            
+            // Show recipe modal
+            setTimeout(() => {
+                var recipeModal = new bootstrap.Modal(document.getElementById('addRecipeModal'));
+                recipeModal.show();
+            }, 400);
+        }
+
+        // Handle file input change
+        document.getElementById('recipeImage').addEventListener('change', function(e) {
+            if (e.target.files && e.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var uploadDiv = document.querySelector('.recipe-image-upload');
+                    uploadDiv.innerHTML = `
+                        <img src="${e.target.result}" style="max-width: 100%; max-height: 200px; border-radius: 8px;">
+                        <div style="color: #666; font-size: 0.9rem; margin-top: 12px">Klik untuk mengganti gambar</div>
+                    `;
+                }
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('recipeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            var modal = bootstrap.Modal.getInstance(document.getElementById('addRecipeModal'));
+            modal.hide();
+        });
+    </script>
 </body>
 </html>
