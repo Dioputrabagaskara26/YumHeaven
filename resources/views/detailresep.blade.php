@@ -617,7 +617,7 @@
                 <p>Bubur Ayam adalah hidangan sarapan khas Indonesia yang terbuat dari beras putih yang dimasak hingga menjadi bubur lembut, disajikan dengan suwiran ayam rebus, kerupuk, dan berbagai pelengkap lezat lainnya seperti kacang tanah goreng dan bawang goreng di atas laut.</p>
                 <div class="rating">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <span class="rating-text">5.0 (25 Rates)</span>
+                    <span class="rating-text">5.0 (35 Rates)</span>
                 </div>
             </div>
             <div class="hero-image"></div>
