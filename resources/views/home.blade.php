@@ -211,6 +211,139 @@
             background: #7bc5c9;
             color: #fff;
         }
+
+        /* Add Recipe Modal Styles */
+        .modal-recipe {
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        
+        .modal-recipe .modal-header {
+            background: #f5d6b2;
+            border-bottom: none;
+            padding: 20px 30px;
+        }
+        
+        .modal-recipe .modal-title {
+            color: #7c5a3a;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+        
+        .modal-recipe .modal-body {
+            padding: 30px;
+        }
+        
+        .recipe-input {
+            border: 2px solid #f5d6b2;
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .recipe-input:focus {
+            border-color: #7c5a3a;
+            box-shadow: 0 0 0 0.2rem rgba(124, 90, 58, 0.25);
+        }
+        
+        .recipe-textarea {
+            min-height: 150px;
+            resize: none;
+        }
+        
+        .recipe-image-upload {
+            border: 2px dashed #f5d6b2;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .recipe-image-upload:hover {
+            border-color: #7c5a3a;
+            background: #fff5e6;
+        }
+        
+        .btn-submit-recipe {
+            background: #7c5a3a;
+            color: #fff;
+            border-radius: 12px;
+            padding: 12px 30px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit-recipe:hover {
+            background: #6a4c32;
+            color: #fff;
+        }
+
+        /* Choice Modal Styles */
+        .modal-choice {
+            border-radius: 24px;
+            overflow: hidden;
+            max-width: 320px;
+            margin: 1.75rem auto;
+        }
+        
+        .modal-choice .modal-content {
+            border: none;
+            border-radius: 24px;
+        }
+        
+        .choice-button {
+            background: #fff;
+            border: 2px solid #f5d6b2;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .choice-button:hover {
+            border-color: #7c5a3a;
+            background: #fff5e6;
+        }
+        
+        .choice-button .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .choice-button .icon.recipe {
+            background: #ffe4e4;
+        }
+        
+        .choice-button .icon.article {
+            background: #e4f5ff;
+        }
+        
+        .choice-button .text {
+            text-align: left;
+            flex-grow: 1;
+        }
+        
+        .choice-button .title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        
+        .choice-button .description {
+            font-size: 0.85rem;
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -583,5 +716,118 @@
         </div>
     
     </footer>
+
+    <!-- Choice Modal -->
+    <div class="modal fade" id="choiceModal" tabindex="-1">
+        <div class="modal-dialog modal-choice">
+            <div class="modal-content">
+                <div class="modal-body p-4">
+                    <div class="choice-button" onclick="openAddRecipeModal()">
+                        <div class="icon recipe">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M15 11H9m3-3v6M12 4c4.4183 0 8 3.5817 8 8s-3.5817 8-8 8-8-3.5817-8-8 3.5817-8 8-8z" stroke="#ff8a9b" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="text">
+                            <div class="title">Tambah Resep</div>
+                            <div class="description">Bagikan resep favoritmu</div>
+                        </div>
+                    </div>
+                    <div class="choice-button">
+                        <div class="icon article">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M15 11H9m3-3v6M12 4c4.4183 0 8 3.5817 8 8s-3.5817 8-8 8-8-3.5817-8-8 3.5817-8 8-8z" stroke="#5ab0ff" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="text">
+                            <div class="title">Tambah Artikel</div>
+                            <div class="description">Tulis artikel tentang kuliner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Recipe Modal -->
+    <div class="modal fade" id="addRecipeModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-recipe">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tambahkan Resep</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="recipeForm">
+                        <div class="mb-4">
+                            <input type="text" class="form-control recipe-input" placeholder="Judul Resep" required>
+                        </div>
+                        <div class="mb-4">
+                            <textarea class="form-control recipe-input recipe-textarea" placeholder="Deskripsi Resep" required></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <div class="recipe-image-upload" onclick="document.getElementById('recipeImage').click()">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" style="margin-bottom: 12px">
+                                    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7m4-5l5-5 5 5m-5-5v12" stroke="#7c5a3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <div style="color: #7c5a3a; font-weight: 500">Unggah Foto Resep</div>
+                                <div style="color: #666; font-size: 0.9rem; margin-top: 4px">Klik atau seret file kesini</div>
+                            </div>
+                            <input type="file" id="recipeImage" accept="image/*" style="display: none">
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-submit-recipe">Tambah Resep</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add click event to the plus button to show choice modal
+        document.querySelector('.btn-light').addEventListener('click', function() {
+            var modal = new bootstrap.Modal(document.getElementById('choiceModal'));
+            modal.show();
+        });
+
+        // Function to open add recipe modal
+        function openAddRecipeModal() {
+            // Hide choice modal
+            var choiceModal = bootstrap.Modal.getInstance(document.getElementById('choiceModal'));
+            choiceModal.hide();
+            
+            // Show recipe modal
+            setTimeout(() => {
+                var recipeModal = new bootstrap.Modal(document.getElementById('addRecipeModal'));
+                recipeModal.show();
+            }, 400);
+        }
+
+        // Handle file input change
+        document.getElementById('recipeImage').addEventListener('change', function(e) {
+            if (e.target.files && e.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var uploadDiv = document.querySelector('.recipe-image-upload');
+                    uploadDiv.innerHTML = `
+                        <img src="${e.target.result}" style="max-width: 100%; max-height: 200px; border-radius: 8px;">
+                        <div style="color: #666; font-size: 0.9rem; margin-top: 12px">Klik untuk mengganti gambar</div>
+                    `;
+                }
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('recipeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            var modal = bootstrap.Modal.getInstance(document.getElementById('addRecipeModal'));
+            modal.hide();
+        });
+    </script>
 </body>
 </html>
